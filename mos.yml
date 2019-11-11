@@ -1,0 +1,36 @@
+author: brandond
+description: Implements SH1106 OLED driver on Mongoose OS
+type: lib
+version: 1.0
+
+platforms: [ esp32 ]
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/i2c
+
+sources:
+  - src
+includes:
+  - include
+
+config_schema:
+  - ["sh1106", "o", {title: "SH1106 Settings"}]
+  - ["sh1106.enable", "b", true, {title: "Enable SH1106"}]
+  - ["sh1106.width", "i", 128, {title: "Screen width"}]
+  - ["sh1106.height", "i", 32, {title: "Screen height"}]
+  - ["sh1106.address", "i", 0x3c, {title: "Screen controller I2C address"}]
+  - ["sh1106.i2c", "o", {title: "SH1106 I2C settings"}]
+  - ["sh1106.i2c.enable", "b", true, {title: "Enable SH1106-specific I2C configuration"}]
+  - ["sh1106.i2c.freq", "i", 400000, {title: "Clock frequency"}]
+  - ["sh1106.i2c.unit_no", "i", 0, {title: "Which hardware unit to use, 0 or 1"}]
+  - ["sh1106.i2c.debug", "b" , false, {title: "Debug I2C bus activity"}]
+  - ["sh1106.i2c.sda_gpio", "i", 5, {title: "GPIO to use for SDA"}]
+  - ["sh1106.i2c.scl_gpio", "i", 4, {title: "GPIO to use for SCL"}]
+
+tags:
+  - c
+  - i2c
+  - sh1106
+  - docs:drivers:SH1106 OLED
+
+manifest_version: 2017-09-29
